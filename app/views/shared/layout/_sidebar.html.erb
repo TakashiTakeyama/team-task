@@ -19,8 +19,8 @@
           <div class="input-group input-group-sm">
             <%= text_field_tag :title, '', { class: 'form-control', placeholder: 'タイトル入力' } %>
             <span class="input-group-append">
-              <button type="submit" class="btn btn-info btn-flat">作成</button>
             </span>
+            <button type="submit" class="btn btn-info btn-flat">作成</button>
           </div>
         <% end %>
       </div>
@@ -37,6 +37,7 @@
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
+          <li><%= button_to '削除',agenda,  method: :delete, class: 'btn btn-danger' %></li>
             <ul class="nav nav-treeview" style="display: block;">
               <% agenda.articles.each do |article| %>
                 <li class="nav-item">

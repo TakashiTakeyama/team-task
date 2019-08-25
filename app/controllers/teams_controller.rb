@@ -58,7 +58,7 @@ class TeamsController < ApplicationController
     # binding.pry
     @team.update(owner_id: params[:id])
     redirect_to team_url(params[:team_id]), notice: '権限を移動しました！'
-    # OwnerMailer.owner_mail(@user.email, @team).deliver
+    AssignMailer.owner_change_notice_mail(@user).deliver
     # binding.pry
   end
 

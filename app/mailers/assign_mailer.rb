@@ -6,4 +6,9 @@ class AssignMailer < ApplicationMailer
     @password = password
     mail to: @email, subject: '登録完了'
   end
+
+  def owner_change_notice_mail(user)
+    @email = user.email
+    mail to: @email, subject: 'オーナーがあなたになりました。'
+  end
 end

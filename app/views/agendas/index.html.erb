@@ -10,18 +10,21 @@
   </thead>
 
   <tbody>
-    <% @agendas.includes(:articles).each do |agenda| %>
+<% @agendas.includes(:articles).each do |agenda| %>
       <table>
-        <tr>Agenda title:<%= agenda.title %></tr>
+        <tr>Agenda title:<%= agenda.title %>
+          <td><%= link_to 'Delete Agenda', agenda, method: :delete, class: 'btn btn-danger' %></td>
+        </tr>
         <br />
-        <% agenda.articles.each do |article| %>
+<% agenda.articles.each do |article| %>
           <li>Article title:<%= article.title %></li>
-        <% end %>
+<% end %>
       </table>
-    <% end %>
+<% end %>
   </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New Agenda', new_team_agenda_path %>
+

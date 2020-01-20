@@ -47,6 +47,21 @@ class TeamsController < ApplicationController
     @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
 
+  # def owner_change
+  #   teams_owner = Team.find_by(params[:owner_id])
+  #   teams_owner
+  # end
+
+  def owner_change
+    @team = Team.find_by(name: params[:team_id])
+    @user = User.find_by(id: params[:id])
+    # binding.pry
+    @team.update(owner_id: params[:id])
+    redirect_to team_url(params[:team_id]), notice: '権限を移動しました！'
+    AssignMailer.owner_change_notice_mail(@user).deliver
+    # binding.pry
+  end
+
   private
 
   def set_team

@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2018_10_05_035232) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.datetime "created_at", null: false
+    dt.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "icon"
     t.integer "keep_team_id"
